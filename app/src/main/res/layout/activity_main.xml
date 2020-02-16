@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/shou_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/ic_menu_choice_nor"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/zhuan_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_menu_topic_nor"
+            android:text="专题" />
+
+        <RadioButton
+            android:id="@+id/fen_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_menu_sort_nor"
+            android:text="分类" />
+
+        <RadioButton
+            android:id="@+id/shop_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_menu_shoping_nor"
+            android:gravity="center"
+            android:text="购物车" />
+
+        <RadioButton
+            android:id="@+id/mine_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_menu_me_nor"
+            android:text="我的" />
+    </RadioGroup>
+
+</LinearLayout>
