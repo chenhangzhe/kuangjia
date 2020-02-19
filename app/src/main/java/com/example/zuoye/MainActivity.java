@@ -2,19 +2,19 @@ package com.example.zuoye;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.zuoye.adapter.MainAdapter;
-import com.example.zuoye.fragment.FenleiFragment;
+import com.example.zuoye.adapter.home.ViewpagerAdapter;
+import com.example.zuoye.fragment.classify.FenleiFragment;
 import com.example.zuoye.fragment.MineFragment;
 import com.example.zuoye.fragment.ShopFragment;
 import com.example.zuoye.fragment.ShouyeFragment;
 import com.example.zuoye.fragment.ZhuantiFragment;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -22,12 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private ViewPager vp_main;
-    private RadioButton shou_main;
-    private RadioButton zhuan_main;
-    private RadioButton fen_main;
-    private RadioButton shop_main;
-    private RadioButton mine_main;
-    private RadioGroup rg_main;
+
+    private TabLayout tab;
+    private ViewpagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         vp_main = (ViewPager) findViewById(R.id.vp_main);
-        shou_main = (RadioButton) findViewById(R.id.shou_main);
-        zhuan_main = (RadioButton) findViewById(R.id.zhuan_main);
-        fen_main = (RadioButton) findViewById(R.id.fen_main);
-        shop_main = (RadioButton) findViewById(R.id.shop_main);
-        mine_main = (RadioButton) findViewById(R.id.mine_main);
-        rg_main = (RadioGroup) findViewById(R.id.rg_main);
+        tab = (TabLayout) findViewById(R.id.tab_main);
+
 
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new ShouyeFragment());
@@ -57,32 +50,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager(), fragments);
         vp_main.setAdapter(adapter);
+        //设置是适配器
+      /*  adapter = new ViewpagerAdapter(getSupportFragmentManager(), fragments);
+        //设置联动
+        vp_main.setAdapter(adapter);*/
+        //进行关联
+        tab.setupWithViewPager(vp_main);
 
-        shou_main.setOnClickListener(this);
-        zhuan_main.setOnClickListener(this);
-        mine_main.setOnClickListener(this);
-        fen_main.setOnClickListener(this);
-        shop_main.setOnClickListener(this);
+        tab.getTabAt(0).setText("首页").setIcon(R.drawable.ic_menu_choice_nor);
+        tab.getTabAt(1).setText("专题").setIcon(R.drawable.ic_menu_topic_nor);
+        tab.getTabAt(2).setText("分类").setIcon(R.drawable.ic_menu_sort_nor);
+        tab.getTabAt(3).setText("购物车").setIcon(R.drawable.ic_menu_shoping_nor);
+        tab.getTabAt(4).setText("我的").setIcon(R.drawable.ic_menu_me_nor);
+
+
+
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.shou_main:
-                vp_main.setCurrentItem(0);
-                break;
-            case R.id.zhuan_main:
-                vp_main.setCurrentItem(1);
-                break;
-            case R.id.fen_main:
-                vp_main.setCurrentItem(2);
-                break;
-            case R.id.shop_main:
-                vp_main.setCurrentItem(3);
-                break;
-            case R.id.mine_main:
-                vp_main.setCurrentItem(4);
-                break;
-        }
+
+
+
     }
 }

@@ -1,4 +1,4 @@
-package com.example.zuoye.adapter.shouye;
+package com.example.zuoye.adapter.home;
 
 import android.content.Context;
 import android.view.View;
@@ -15,11 +15,11 @@ import com.example.zuoye.model.bean.ShouYeBean;
 
 import java.util.List;
 
-public class XinpinRvAdapter extends RecyclerView.Adapter<XinpinRvAdapter.ViewHolder> {
+public class ZhuantiRvAdapter extends RecyclerView.Adapter<ZhuantiRvAdapter.ViewHolder> {
     private Context context;
-    private List<ShouYeBean.DataBean.NewGoodsListBean> datas;
+    private List<ShouYeBean.DataBean.TopicListBean> datas;
 
-    public XinpinRvAdapter(Context context, List<ShouYeBean.DataBean.NewGoodsListBean> datas) {
+    public ZhuantiRvAdapter(Context context, List<ShouYeBean.DataBean.TopicListBean> datas) {
         this.context = context;
         this.datas = datas;
     }
@@ -27,16 +27,17 @@ public class XinpinRvAdapter extends RecyclerView.Adapter<XinpinRvAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_rv_xinpin, null);
+        View view = View.inflate(context, R.layout.item_rv_zhuannti, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ShouYeBean.DataBean.NewGoodsListBean newGoodsListBean = datas.get(position);
-        Glide.with(context).load(newGoodsListBean.getList_pic_url()).into(holder.img);
-        holder.name.setText(newGoodsListBean.getName());
-        holder.price.setText(newGoodsListBean.getRetail_price());
+
+        ShouYeBean.DataBean.TopicListBean topicListBean = datas.get(position);
+        Glide.with(context).load(topicListBean.getScene_pic_url()).into(holder.img);
+        holder.name.setText(topicListBean.getTitle());
+
     }
 
     @Override
@@ -47,12 +48,10 @@ public class XinpinRvAdapter extends RecyclerView.Adapter<XinpinRvAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView img;
         private TextView name;
-        private TextView price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.img_xinpin);
-            name = itemView.findViewById(R.id.name_xinpin);
-            price = itemView.findViewById(R.id.price_xinpin);
+            img = itemView.findViewById(R.id.img_zhuanti);
+            name = itemView.findViewById(R.id.title);
         }
     }
 }

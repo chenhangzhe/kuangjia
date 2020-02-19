@@ -16,6 +16,7 @@ public class Constant {
 
 
 
+
     //网络缓存的地址
     public static final String PATH_DATA = MyApp.app.getCacheDir().getAbsolutePath() + File.separator + "data";
 

@@ -6,4 +6,7 @@
     <color name="colorBai">#FAF9F9</color>
     <color name="colorHei">#252424</color>
     <color name="colorhui">#7A6F6F</color>
+    <color name="color_vertical_line">#EBE9E9</color>
+    <color name="white">#ffffff</color>
+    <color name="color_white">#FAFAFA</color>
 </resources>

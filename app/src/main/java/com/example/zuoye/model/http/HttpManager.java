@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.zuoye.constants.Constant;
 import com.example.zuoye.model.apis.MyApi;
 import com.example.zuoye.model.apis.ShouyeApi;
+import com.example.zuoye.model.apis.TestApi;
 import com.example.zuoye.utils.SystemUtils;
 
 import java.io.File;
@@ -33,6 +34,7 @@ public class HttpManager {
     private static Cache cache;
 
     private static MyApi myApi;
+    private static TestApi testApi;
     private static ShouyeApi shouyeApi;
 
 
@@ -112,7 +114,7 @@ public class HttpManager {
         synchronized (HttpManager.class){
             if(myApi == null){
                 synchronized (HttpManager.class){
-                    myApi = getServerApis(Constant.Base_Wan_url,MyApi.class);
+                    myApi = getServerApis(Constant.Base_Url,MyApi.class);
                 }
             }
         }
@@ -127,6 +129,16 @@ public class HttpManager {
             }
         }
         return shouyeApi;
+    }
+    public static TestApi getTestApi(){
+        synchronized (HttpManager.class){
+            if(testApi == null){
+                synchronized (HttpManager.class){
+                    testApi = getServerApis(TestApi.test_url,TestApi.class);
+                }
+            }
+        }
+        return testApi;
     }
 
     //拦截器的实现类

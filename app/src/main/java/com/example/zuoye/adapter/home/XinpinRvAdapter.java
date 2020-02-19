@@ -1,4 +1,4 @@
-package com.example.zuoye.adapter.shouye;
+package com.example.zuoye.adapter.home;
 
 import android.content.Context;
 import android.view.View;
@@ -9,19 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.bumptech.glide.Glide;
 import com.example.zuoye.R;
 import com.example.zuoye.model.bean.ShouYeBean;
 
-
 import java.util.List;
 
-public class PinpaiRvAdapter extends RecyclerView.Adapter<PinpaiRvAdapter.ViewHolder> {
+public class XinpinRvAdapter extends RecyclerView.Adapter<XinpinRvAdapter.ViewHolder> {
     private Context context;
-    private List<ShouYeBean.DataBean.BrandListBean> datas;
+    private List<ShouYeBean.DataBean.NewGoodsListBean> datas;
 
-    public PinpaiRvAdapter(Context context, List<ShouYeBean.DataBean.BrandListBean> datas ) {
+    public XinpinRvAdapter(Context context, List<ShouYeBean.DataBean.NewGoodsListBean> datas) {
         this.context = context;
         this.datas = datas;
     }
@@ -29,16 +27,16 @@ public class PinpaiRvAdapter extends RecyclerView.Adapter<PinpaiRvAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_rv_pinpai, null);
+        View view = View.inflate(context, R.layout.item_rv_xinpin, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ShouYeBean.DataBean.BrandListBean brandListBean = datas.get(position);
-        Glide.with(context).load(brandListBean.getNew_pic_url()).into(holder.img);
-        holder.name.setText(brandListBean.getName());
-        holder.price.setText(brandListBean.getFloor_price());
+        ShouYeBean.DataBean.NewGoodsListBean newGoodsListBean = datas.get(position);
+        Glide.with(context).load(newGoodsListBean.getList_pic_url()).into(holder.img);
+        holder.name.setText(newGoodsListBean.getName());
+        holder.price.setText(newGoodsListBean.getRetail_price());
     }
 
     @Override
@@ -52,9 +50,9 @@ public class PinpaiRvAdapter extends RecyclerView.Adapter<PinpaiRvAdapter.ViewHo
         private TextView price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.img_item_rv);
-            name = itemView.findViewById(R.id.name);
-            price = itemView.findViewById(R.id.price);
+            img = itemView.findViewById(R.id.img_xinpin);
+            name = itemView.findViewById(R.id.name_xinpin);
+            price = itemView.findViewById(R.id.price_xinpin);
         }
     }
 }

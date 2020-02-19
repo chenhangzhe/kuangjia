@@ -1,4 +1,4 @@
-package com.example.zuoye.adapter.shouye;
+package com.example.zuoye.adapter.home;
 
 import android.content.Context;
 import android.view.View;
@@ -15,11 +15,11 @@ import com.example.zuoye.model.bean.ShouYeBean;
 
 import java.util.List;
 
-public class ZhuantiRvAdapter extends RecyclerView.Adapter<ZhuantiRvAdapter.ViewHolder> {
+public class RenqiRvAdapter extends RecyclerView.Adapter<RenqiRvAdapter.ViewHolder> {
     private Context context;
-    private List<ShouYeBean.DataBean.TopicListBean> datas;
+    private List<ShouYeBean.DataBean.HotGoodsListBean> datas;
 
-    public ZhuantiRvAdapter(Context context, List<ShouYeBean.DataBean.TopicListBean> datas) {
+    public RenqiRvAdapter(Context context, List<ShouYeBean.DataBean.HotGoodsListBean> datas) {
         this.context = context;
         this.datas = datas;
     }
@@ -27,17 +27,17 @@ public class ZhuantiRvAdapter extends RecyclerView.Adapter<ZhuantiRvAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_rv_zhuannti, null);
+        View view = View.inflate(context, R.layout.item_rv_renqi, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        ShouYeBean.DataBean.TopicListBean topicListBean = datas.get(position);
-        Glide.with(context).load(topicListBean.getScene_pic_url()).into(holder.img);
-        holder.name.setText(topicListBean.getTitle());
-
+        ShouYeBean.DataBean.HotGoodsListBean hotGoodsListBean = datas.get(position);
+        Glide.with(context).load(hotGoodsListBean.getList_pic_url()).into(holder.img);
+        holder.name.setText(hotGoodsListBean.getName());
+        holder.price.setText(hotGoodsListBean.getRetail_price());
+        holder.brief.setText(hotGoodsListBean.getGoods_brief());
     }
 
     @Override
@@ -48,10 +48,14 @@ public class ZhuantiRvAdapter extends RecyclerView.Adapter<ZhuantiRvAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView img;
         private TextView name;
+        private TextView brief;
+        private TextView price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.img_zhuanti);
-            name = itemView.findViewById(R.id.title);
+            img = itemView.findViewById(R.id.img_renqi);
+            brief = itemView.findViewById(R.id.brief_renqi);
+            name = itemView.findViewById(R.id.name_renqi);
+            price = itemView.findViewById(R.id.price_renqi);
         }
     }
 }

@@ -13,62 +13,12 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+   <com.google.android.material.tabs.TabLayout
+       android:id="@+id/tab_main"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 
-    <RadioGroup
-        android:id="@+id/rg_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/shou_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/ic_menu_choice_nor"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:text="首页" />
 
-        <RadioButton
-            android:id="@+id/zhuan_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:drawableTop="@drawable/ic_menu_topic_nor"
-            android:text="专题" />
-
-        <RadioButton
-            android:id="@+id/fen_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:drawableTop="@drawable/ic_menu_sort_nor"
-            android:text="分类" />
-
-        <RadioButton
-            android:id="@+id/shop_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/ic_menu_shoping_nor"
-            android:gravity="center"
-            android:text="购物车" />
-
-        <RadioButton
-            android:id="@+id/mine_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:drawableTop="@drawable/ic_menu_me_nor"
-            android:text="我的" />
-    </RadioGroup>
 
 </LinearLayout>
