@@ -1,6 +1,7 @@
 package com.example.zuoye.adapter.home;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -27,7 +28,8 @@ public class XinpinRvAdapter extends RecyclerView.Adapter<XinpinRvAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_rv_xinpin, null);
+       // View view = View.inflate(context, R.layout.item_rv_xinpin, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_xinpin,parent,false);
         return new ViewHolder(view);
     }
 

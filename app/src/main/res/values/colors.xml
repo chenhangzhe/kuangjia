@@ -9,4 +9,6 @@
     <color name="color_vertical_line">#EBE9E9</color>
     <color name="white">#ffffff</color>
     <color name="color_white">#FAFAFA</color>
+    <color name="color_gray_bg">#DDDCDC</color>
+    <color name="black">#000</color>
 </resources>

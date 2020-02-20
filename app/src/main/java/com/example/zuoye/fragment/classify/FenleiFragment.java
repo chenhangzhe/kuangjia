@@ -50,7 +50,7 @@ public class FenleiFragment extends BaseFragment<CatalogContract.View, CatalogCo
         tab = (VerticalTabLayout) view.findViewById(R.id.verticalTab);
         desc = (TextView) view.findViewById(R.id.desc);
         title = (TextView) view.findViewById(R.id.txt_title);
-        img = (ImageView) view.findViewById(R.id.img_classify);
+        img = (ImageView) view.findViewById(R.id.img);
         recyShop = (RecyclerView) view.findViewById(R.id.recy_classify);
 
         titles = new ArrayList<>();
@@ -130,13 +130,13 @@ public class FenleiFragment extends BaseFragment<CatalogContract.View, CatalogCo
             titles.add(bean.getName());
         }
         tab.setTabAdapter(tabAdapter);
-        refreshtoright(category.getImg_url(),category.getFront_desc(),category.getName()+"分类");
+        refreshtoright(category.getBanner_url(),category.getFront_desc(),category.getName()+"分类");
         //清空集合数据
         list.clear();
         for (CatalogTabBean.DataBean.CurrentCategoryBean.SubCategoryListBean bean : result.getData().getCurrentCategory().getSubCategoryList()) {
             CatalogItem item = new CatalogItem();
             item.id = bean.getId();
-            item.img = bean.getImg_url();
+            item.img = bean.getWap_banner_url();
             item.name = bean.getName();
             list.add(item);
         }
@@ -147,12 +147,12 @@ public class FenleiFragment extends BaseFragment<CatalogContract.View, CatalogCo
     @Override
     public void getCatalogListReturn(CatalogListBean result) {
         CatalogListBean.DataBean.CurrentCategoryBean category = result.getData().getCurrentCategory();
-        refreshtoright(category.getImg_url(),category.getFront_desc(),category.getName()+"分类");
+        refreshtoright(category.getBanner_url(),category.getFront_desc(),category.getName()+"分类");
         list.clear();
         for (CatalogListBean.DataBean.CurrentCategoryBean.SubCategoryListBean bean : result.getData().getCurrentCategory().getSubCategoryList()) {
             CatalogItem item = new CatalogItem();
             item.id = bean.getId();
-            item.img = bean.getImg_url();
+            item.img = bean.getWap_banner_url();
             item.name = bean.getName();
             list.add(item);
         }

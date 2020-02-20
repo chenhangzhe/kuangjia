@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.zuoye.R;
 import com.example.zuoye.base.BaseFragment;
 import com.example.zuoye.interfaces.IPersenter;
-import com.example.zuoye.interfaces.shangcheng.ShouyeContract;
+import com.example.zuoye.interfaces.home.HomeContract;
 import com.example.zuoye.model.bean.ShouYeBean;
 import com.example.zuoye.presenter.ShouyePresenter;
 
 import butterknife.BindView;
 
-public class JujiaFragment extends BaseFragment implements ShouyeContract.View{
+public class JujiaFragment extends BaseFragment implements HomeContract.View{
     @BindView(R.id.rv_jujia)
     RecyclerView rvJujia;
 

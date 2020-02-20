@@ -1,7 +1,7 @@
 package com.example.zuoye.presenter;
 
 import com.example.zuoye.base.BasePersenter;
-import com.example.zuoye.interfaces.shangcheng.ZhuantiContract;
+import com.example.zuoye.interfaces.home.ZhuantiContract;
 import com.example.zuoye.model.CommonSubscriber;
 import com.example.zuoye.model.bean.ZhuantiBean;
 import com.example.zuoye.model.http.HttpManager;

@@ -1,96 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/color_gray_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@color/white"
 
-        <com.youth.banner.Banner
-            android:id="@+id/banner_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.youth.banner.Banner
+                    android:id="@+id/ban"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/ban"
+                   />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_shouye"
-            android:background="@color/colorBai"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/banner_shouye" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="18sp"></TextView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    ></androidx.recyclerview.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/tv1_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorBai"
-            android:gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/tab_shouye" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/newgoodtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textAlignment="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18dp"
+                        ></TextView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/newgood_recy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toBottomOf="@id/newgoodtitle"
+                        ></androidx.recyclerview.widget.RecyclerView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv1_shouye" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/txt_hotTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="18sp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/hot_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/txt_hotTitle"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_shouye"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/recy" />
+        </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/tv2_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@color/colorBai"
-            android:gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/rv_shouye"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv2_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv2_shouye" />
-        <TextView
-            android:id="@+id/tv3_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorBai"
-            android:gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/rv2_shouye" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv3_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv3_shouye" />
-        <TextView
-            android:id="@+id/tv4_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorBai"
-            android:gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/rv3_shouye" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv4_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv4_shouye" />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_shouye"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/rv_shouye" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

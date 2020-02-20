@@ -9,7 +9,7 @@ import com.example.zuoye.R;
 import com.example.zuoye.adapter.ZhuantiAdapter;
 import com.example.zuoye.base.BaseFragment;
 import com.example.zuoye.interfaces.IPersenter;
-import com.example.zuoye.interfaces.shangcheng.ZhuantiContract;
+import com.example.zuoye.interfaces.home.ZhuantiContract;
 import com.example.zuoye.model.bean.ZhuantiBean;
 import com.example.zuoye.presenter.ZhuantiPresenter;
 

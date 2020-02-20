@@ -1,4 +1,4 @@
-package com.example.zuoye.adapter;
+package com.example.zuoye.fragment.shouye;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
