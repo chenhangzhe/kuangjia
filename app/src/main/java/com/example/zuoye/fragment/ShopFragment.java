@@ -11,9 +11,10 @@ public class ShopFragment extends BaseFragment {
     protected int getLayout() {
         return R.layout.fragment_shop;
     }
-
     @Override
     protected void initView(View view) {
+
+
 
     }
 
