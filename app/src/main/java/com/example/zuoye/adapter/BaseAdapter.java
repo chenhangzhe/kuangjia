@@ -20,6 +20,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseAdapter.Ba
         this.mDatas = mDatas;
         //设置局部刷新
         setHasStableIds(true);
+
     }
 
     @Override
