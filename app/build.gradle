@@ -62,7 +62,6 @@ dependencies {
 // 必要rxjava2依赖   // 必要rxandrroid依赖，切线程时需要用到
 
 
-
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0' // 必要依赖，解析json字符所用
@@ -78,13 +77,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     //竖导航
     implementation 'q.rorbin:VerticalTabLayout:1.2.5'
-
-
-
-
-
-
-
 
 
 }

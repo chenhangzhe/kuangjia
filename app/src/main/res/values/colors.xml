@@ -11,4 +11,5 @@
     <color name="color_white">#FAFAFA</color>
     <color name="color_gray_bg">#DDDCDC</color>
     <color name="black">#000</color>
+    <color name="color_price">#BDB8B8</color>
 </resources>

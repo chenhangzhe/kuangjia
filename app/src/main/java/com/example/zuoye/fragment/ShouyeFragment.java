@@ -97,7 +97,13 @@ public class ShouyeFragment extends BaseFragment<HomeContract.View, HomeContract
     }
 
     private void xinpin() {
-        newgood_recy.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2)/*{
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        }*/;
+        newgood_recy.setLayoutManager(gridLayoutManager);
         newGoodsListBeans = new ArrayList<>();
         xinpinRvAdapter = new XinpinRvAdapter(getActivity(), newGoodsListBeans);
         newgood_recy.setAdapter(xinpinRvAdapter);

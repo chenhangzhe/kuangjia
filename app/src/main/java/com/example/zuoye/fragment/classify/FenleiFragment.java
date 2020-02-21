@@ -1,5 +1,6 @@
 package com.example.zuoye.fragment.classify;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.zuoye.R;
+import com.example.zuoye.adapter.BaseAdapter;
 import com.example.zuoye.base.BaseFragment;
+import com.example.zuoye.fragment.activity.Classifdateactivity;
 import com.example.zuoye.interfaces.catalog.CatalogContract;
 import com.example.zuoye.model.bean.CatalogItem;
 import com.example.zuoye.model.bean.CatalogListBean;
@@ -66,6 +69,15 @@ public class FenleiFragment extends BaseFragment<CatalogContract.View, CatalogCo
         recyShop.setLayoutManager(gridLayoutManager);
         recyShop.setAdapter(classifyAdapter);
         tab.addOnTabSelectedListener(this);
+        classifyAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                int id = list.get(position).id;
+                Intent intent = new Intent(getActivity(), Classifdateactivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
     }
     //创建竖向tablayout导航栏
     TabAdapter tabAdapter = new TabAdapter() {
