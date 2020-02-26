@@ -1,7 +1,8 @@
-package com.example.zuoye.fragment;
+package com.example.zuoye.fragment.shouye;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,12 +19,11 @@ import com.example.zuoye.adapter.home.PinpaiRvAdapter;
 import com.example.zuoye.adapter.home.RenqiRvAdapter;
 import com.example.zuoye.adapter.home.XinpinRvAdapter;
 import com.example.zuoye.base.BaseFragment;
-import com.example.zuoye.fragment.shouye.JujiaFragment;
-import com.example.zuoye.fragment.shouye.ShouyeAdapter;
-import com.example.zuoye.interfaces.IPersenter;
+import com.example.zuoye.fragment.shouye.activity.BrandListActivity;
+import com.example.zuoye.fragment.shouye.activity.NewHotActivity;
 import com.example.zuoye.interfaces.home.HomeContract;
 import com.example.zuoye.model.bean.ShouYeBean;
-import com.example.zuoye.presenter.ShouyePresenter;
+import com.example.zuoye.presenter.home.ShouyePresenter;
 import com.google.android.material.tabs.TabLayout;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
@@ -53,6 +53,7 @@ public class ShouyeFragment extends BaseFragment<HomeContract.View, HomeContract
     private ArrayList<String> strings;
     private ArrayList<Fragment> fragments;
     private ArrayList<String> tabString;
+    private ShouYeBean.DataBean data;
 
 
     @Override
@@ -74,10 +75,44 @@ public class ShouyeFragment extends BaseFragment<HomeContract.View, HomeContract
         title.setText("品牌制造商直供");
         newgoodtitle.setText("周一周四·新品发布");
         txt_hotTitle.setText("人气推荐");
+        onClick();
         initdata();
         pinpai();
         xinpin();
         renqi();
+    }
+
+    private void onClick() {
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BrandListActivity.class);
+                startActivity(intent);
+            }
+        });
+        newgoodtitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tag = 1;
+                int id = data.getNewGoodsList().get(0).getId();
+                int categoryid = data.getChannel().get(0).getCategoryid();
+                Intent intent = new Intent(context, NewHotActivity.class);
+                intent.putExtra("tag",tag);
+                intent.putExtra("id",categoryid);
+                startActivity(intent);
+            }
+        });
+        txt_hotTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tag1 = 2;
+                int categoryid = data.getChannel().get(0).getCategoryid();
+                Intent intent = new Intent(context, NewHotActivity.class);
+                intent.putExtra("tag",tag1);
+                intent.putExtra("id",categoryid);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initdata() {
@@ -139,7 +174,7 @@ public class ShouyeFragment extends BaseFragment<HomeContract.View, HomeContract
 
     @Override
     public void getshouyeReturn(ShouYeBean shouYeBean) {
-        ShouYeBean.DataBean data = shouYeBean.getData();
+        data = shouYeBean.getData();
         setBannerdata(data);
         setPinpai(shouYeBean);
         setXinpin(data);
@@ -194,5 +229,6 @@ public class ShouyeFragment extends BaseFragment<HomeContract.View, HomeContract
                     }
                 }).start();
     }
+
 
 }

@@ -12,7 +12,7 @@ import com.example.zuoye.adapter.home.ViewpagerAdapter;
 import com.example.zuoye.fragment.classify.FenleiFragment;
 import com.example.zuoye.fragment.MineFragment;
 import com.example.zuoye.fragment.ShopFragment;
-import com.example.zuoye.fragment.ShouyeFragment;
+import com.example.zuoye.fragment.shouye.ShouyeFragment;
 import com.example.zuoye.fragment.ZhuantiFragment;
 import com.google.android.material.tabs.TabLayout;
 

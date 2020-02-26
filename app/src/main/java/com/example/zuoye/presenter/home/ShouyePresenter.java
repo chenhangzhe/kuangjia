@@ -1,4 +1,4 @@
-package com.example.zuoye.presenter;
+package com.example.zuoye.presenter.home;
 
 import com.example.zuoye.base.BasePersenter;
 import com.example.zuoye.interfaces.home.HomeContract;

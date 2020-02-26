@@ -10,7 +10,7 @@ import com.example.zuoye.base.BaseFragment;
 import com.example.zuoye.interfaces.IPersenter;
 import com.example.zuoye.interfaces.home.HomeContract;
 import com.example.zuoye.model.bean.ShouYeBean;
-import com.example.zuoye.presenter.ShouyePresenter;
+import com.example.zuoye.presenter.home.ShouyePresenter;
 
 import butterknife.BindView;
 

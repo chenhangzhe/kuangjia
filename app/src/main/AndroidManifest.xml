@@ -16,7 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".fragment.activity.Classifdateactivity"></activity>
+        <activity android:name=".fragment.shouye.activity.BrandDetailActivity"></activity>
+        <activity android:name=".fragment.shouye.activity.NewHotActivity" />
+        <activity android:name=".fragment.shouye.activity.BrandListActivity" />
+        <activity android:name=".fragment.activity.Classifdateactivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
