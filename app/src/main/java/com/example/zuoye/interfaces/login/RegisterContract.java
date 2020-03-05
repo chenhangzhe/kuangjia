@@ -3,14 +3,14 @@ package com.example.zuoye.interfaces.login;
 
 import com.example.zuoye.interfaces.IBaseView;
 import com.example.zuoye.interfaces.IPersenter;
-import com.example.zuoye.model.bean.UserBean;
+import com.example.zuoye.model.bean.RegisterBean;
 
-public interface LoginContract {
+public interface RegisterContract {
     interface View extends IBaseView {
-        void loginReturn(UserBean result);
+        void getRegisterBeanReturn(RegisterBean result);
     }
 
     interface Persenter extends IPersenter<View> {
-        void login(String nickname,String password);
+        void getVerify(String name,String passWord);
     }
 }

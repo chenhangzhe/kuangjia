@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".fragment.shouye.activity.BrandDetailActivity"></activity>
+        <activity android:name=".fragment.zhuce.RegisterActivity"></activity>
+        <activity android:name=".fragment.login.LoginActivity" />
+        <activity android:name=".fragment.shouye.activity.BrandDetailActivity" />
         <activity android:name=".fragment.shouye.activity.NewHotActivity" />
         <activity android:name=".fragment.shouye.activity.BrandListActivity" />
         <activity android:name=".fragment.activity.Classifdateactivity" />

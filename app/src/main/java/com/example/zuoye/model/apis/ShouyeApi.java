@@ -5,12 +5,16 @@ import com.example.zuoye.model.bean.BrandListBean;
 import com.example.zuoye.model.bean.BrandListDetailBean;
 import com.example.zuoye.model.bean.BrandTopImgBean;
 import com.example.zuoye.model.bean.NewDataBean;
+import com.example.zuoye.model.bean.RegisterBean;
 import com.example.zuoye.model.bean.ShouYeBean;
+import com.example.zuoye.model.bean.UserBean;
 import com.example.zuoye.model.bean.ZhuantiBean;
 
 
 import io.reactivex.Flowable;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ShouyeApi {
@@ -44,5 +48,13 @@ public interface ShouyeApi {
     @GET("api/goods/list")
     Flowable<NewDataBean> getHotData(@Query("isHot") int isHot,@Query("page") int page,@Query("size")int size,
                                      @Query("order") String order,@Query("sort") String sort,@Query("categoryId") int id);
+
+    //登录
+    @POST("api/auth/login")
+    Flowable<UserBean> login(@Field("nickname") String nickname, @Field("password") String password);
+
+    //注册
+    @POST("api/auth/register")
+    Flowable<RegisterBean> register(@Field("nickname") String nickname, @Field("password") String password);
 }
 

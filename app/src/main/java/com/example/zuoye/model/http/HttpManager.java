@@ -36,6 +36,17 @@ public class HttpManager {
     private static MyApi myApi;
     private static TestApi testApi;
     private static ShouyeApi shouyeApi;
+    private static volatile HttpManager instance;
+    public static HttpManager getInstance(){
+        if(instance == null) {
+            synchronized (HttpManager.class) {
+                if (instance == null) {
+                    instance = new HttpManager();
+                }
+            }
+        }
+        return instance;
+    }
 
 
     //创建Retrofit对象

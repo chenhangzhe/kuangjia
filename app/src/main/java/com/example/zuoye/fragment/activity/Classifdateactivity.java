@@ -21,6 +21,7 @@ import com.example.zuoye.presenter.classify.CategroyPersenter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +43,7 @@ public class Classifdateactivity extends BaseActivity<CategoryConstract.View, Ca
     RecyclerView recyclerview;
     private ArrayList<CategoryListBean.DataBeanX.GoodsListBean> goodsListBeans;
     private CategroyAdapter categroyAdapter;
+    private List<CategoryTabBean.DataBean.BrotherCategoryBean> beans;
 
     @Override
     protected int getLayout() {
@@ -70,6 +72,9 @@ public class Classifdateactivity extends BaseActivity<CategoryConstract.View, Ca
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int id = (int) tab.getTag();
+                CategoryTabBean.DataBean.BrotherCategoryBean bean = beans.get(tab.getPosition());
+                txtTitle.setText(bean.getName());
+                txtDesc.setText(bean.getFront_name());
                 persenter.getGoodsList(id,1,1000);
             }
 
@@ -100,7 +105,8 @@ public class Classifdateactivity extends BaseActivity<CategoryConstract.View, Ca
     @Override
     public void getCategoryTabReturn(CategoryTabBean result) {
         CategoryTabBean.DataBean.CurrentCategoryBean category = result.getData().getCurrentCategory();
-        int position = -1;
+        beans = result.getData().getBrotherCategory();
+        int position = 0;
         for (int i = 0; i < result.getData().getBrotherCategory().size(); i++) {
             CategoryTabBean.DataBean.BrotherCategoryBean bean = result.getData().getBrotherCategory().get(i);
             TabLayout.Tab tab = tabLayout.newTab();
@@ -115,13 +121,14 @@ public class Classifdateactivity extends BaseActivity<CategoryConstract.View, Ca
         txtDesc.setText(category.getFront_desc());
         if (position>0){
             tabLayout.getTabAt(position).select();
-            persenter.getGoodsList(category.getId(),1,1000);
+          //  persenter.getGoodsList(category.getId(),1,1000);
         }
     }
 
     @Override
     public void getGoodsListReturn(CategoryListBean result) {
-        goodsListBeans.addAll(result.getData().getGoodsList());
-        categroyAdapter.notifyDataSetChanged();
+        /*goodsListBeans.addAll(result.getData().getGoodsList());
+        categroyAdapter.notifyDataSetChanged();*/
+        categroyAdapter.refresh(result.getData().getGoodsList());
     }
 }
