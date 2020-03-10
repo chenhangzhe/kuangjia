@@ -12,6 +12,7 @@ import com.example.zuoye.adapter.home.ViewpagerAdapter;
 import com.example.zuoye.fragment.classify.FenleiFragment;
 import com.example.zuoye.fragment.MineFragment;
 import com.example.zuoye.fragment.ShopFragment;
+import com.example.zuoye.fragment.shopping.ShoppingFragment;
 import com.example.zuoye.fragment.shouye.ShouyeFragment;
 import com.example.zuoye.fragment.ZhuantiFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragments.add(new ShouyeFragment());
         fragments.add(new ZhuantiFragment());
         fragments.add(new FenleiFragment());
-        fragments.add(new ShopFragment());
+        fragments.add(new ShoppingFragment());
         fragments.add(new MineFragment());
 
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager(), fragments);
@@ -57,11 +58,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //进行关联
         tab.setupWithViewPager(vp_main);
 
-        tab.getTabAt(0).setText("首页").setIcon(R.drawable.ic_menu_choice_nor);
-        tab.getTabAt(1).setText("专题").setIcon(R.drawable.ic_menu_topic_nor);
-        tab.getTabAt(2).setText("分类").setIcon(R.drawable.ic_menu_sort_nor);
-        tab.getTabAt(3).setText("购物车").setIcon(R.drawable.ic_menu_shoping_nor);
-        tab.getTabAt(4).setText("我的").setIcon(R.drawable.ic_menu_me_nor);
+        tab.getTabAt(0).setText("首页").setIcon(R.drawable.ic_home_selector);
+        tab.getTabAt(1).setText("专题").setIcon(R.drawable.ic_topic_selector);
+        tab.getTabAt(2).setText("分类").setIcon(R.drawable.ic_sort_selector);
+        tab.getTabAt(3).setText("购物车").setIcon(R.drawable.ic_shoping_selector);
+        tab.getTabAt(4).setText("我的").setIcon(R.drawable.ic_me_selector);
 
 
 

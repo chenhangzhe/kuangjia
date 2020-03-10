@@ -4,7 +4,9 @@ import com.example.zuoye.model.bean.BannerInfoTopBean;
 import com.example.zuoye.model.bean.BrandListBean;
 import com.example.zuoye.model.bean.BrandListDetailBean;
 import com.example.zuoye.model.bean.BrandTopImgBean;
+import com.example.zuoye.model.bean.CardListBean;
 import com.example.zuoye.model.bean.NewDataBean;
+import com.example.zuoye.model.bean.NewHotCardListBean;
 import com.example.zuoye.model.bean.RegisterBean;
 import com.example.zuoye.model.bean.ShouYeBean;
 import com.example.zuoye.model.bean.UserBean;
@@ -13,6 +15,7 @@ import com.example.zuoye.model.bean.ZhuantiBean;
 
 import io.reactivex.Flowable;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -56,5 +59,13 @@ public interface ShouyeApi {
     //注册
     @POST("api/auth/register")
     Flowable<RegisterBean> register(@Field("nickname") String nickname, @Field("password") String password);
+    //获取购物车数据
+    @GET("api/cart/index")
+    Flowable<CardListBean> getCardList();
+
+    //添加到购物车
+    @POST("api/cart/add")
+    @FormUrlEncoded
+    Flowable<NewHotCardListBean> cardList(@Field("goodsId") int  goodsId, @Field("number") int number, @Field("productId") int productId);
 }
 

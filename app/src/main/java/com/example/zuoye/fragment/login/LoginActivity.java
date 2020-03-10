@@ -55,6 +55,7 @@ public class LoginActivity extends BaseActivity<LoginContract.View,LoginContract
             @Override
             public void onClick(View view) {
                 persenter.login(name,password);
+
             }
         });
     }
@@ -74,7 +75,9 @@ public class LoginActivity extends BaseActivity<LoginContract.View,LoginContract
     public void loginReturn(UserBean result) {
         if (result.getData().getCode() == 200)
             Toast.makeText(this, "登陆成功", Toast.LENGTH_SHORT).show();
+
         SharedPreferencesUtil.getInstance().setValue(editUsername.getText().toString(),editUsername.getText().toString());
+        finish();
     }
 
     @Override
